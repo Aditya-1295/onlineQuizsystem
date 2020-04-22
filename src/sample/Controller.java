@@ -20,14 +20,14 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
 
-    private MouseEvent mouse;
+
 
     public void showeditDialog(ActionEvent actionEvent) throws Exception{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("editDialogBox.fxml"));
         Parent root = loader.load();
         Stage primaryStage = new Stage();
-        primaryStage.setTitle("Add new to do item");
+        primaryStage.setTitle("Add a new Question");
         primaryStage.setScene(new Scene(root, 600, 400));
 
 
@@ -39,8 +39,6 @@ public class Controller implements Initializable {
 
 
     }
-
-
 
 
 
@@ -126,8 +124,11 @@ public class Controller implements Initializable {
                             rb4.setToggleGroup(group);
                             rb4.setLayoutY(200);
 
+//                            SUBJECTIVE QUESTION
+
                             Toggle answer;
                             answer = group.getSelectedToggle();
+                            System.out.println(answer);
 
 
 
@@ -136,7 +137,7 @@ public class Controller implements Initializable {
                             anchorPane.getChildren().addAll(question_box,opt1,opt2,opt3,opt4,rb1,rb2,rb3,rb4);
 
                             setGraphic(anchorPane);
-                            System.out.println(" it is not empty");
+
 
                         }
 
@@ -151,15 +152,9 @@ public class Controller implements Initializable {
     }
 
 
-    public void removeQuestion(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loaded = new FXMLLoader(getClass().getResource("remove.fxml"));
-        Parent root = loaded.load();
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Add new to do item");
-        primaryStage.setScene(new Scene(root, 600, 400));
+    public void removeQuestion(ActionEvent actionEvent)  {
 
-        ((remove)loaded.getController()).currentStage = primaryStage;
-        primaryStage.showAndWait();
+        listView.getItems().removeAll(listView.getSelectionModel().getSelectedItems());
 
 
 
