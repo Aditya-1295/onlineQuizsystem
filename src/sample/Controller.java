@@ -33,7 +33,7 @@ public class Controller implements Initializable {
 
         Question temporaryQuestion = new Question();
         ((dialogcontroller)loader.getController()).currentStage = primaryStage;
-        ((dialogcontroller)loader.getController()).setQuestion(temporaryQuestion);
+        //((dialogcontroller)loader.getController()).setQuestion(temporaryQuestion);
         primaryStage.showAndWait();
         listView.getItems().add(temporaryQuestion);
 

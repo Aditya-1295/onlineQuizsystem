@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
 
 public class dialogcontroller implements Initializable{
 
-    Question temporaryQuestion;
 
+    Question q;
     @FXML
     public TextField editQuestion;
     @FXML
@@ -32,27 +32,21 @@ public class dialogcontroller implements Initializable{
 
     public void processResult(MouseEvent mouseEvent){
 
-        temporaryQuestion.setQuestion(editQuestion.getText().trim());
-        temporaryQuestion.setOpt1(editopt1.getText());
-        temporaryQuestion.setOpt2(editopt2.getText());
-        temporaryQuestion.setOpt3(editopt3.getText());
-        temporaryQuestion.setOpt4(editopt4.getText());
+        String question = editQuestion.getText().trim();
+        String opt1 =editopt1.getText();
+        String opt2 = editopt2.getText();
+        String opt3 = editopt3.getText();
+        String opt4 = editopt4.getText();
+        q = new Question(1,question,opt1,opt2,opt3,opt4);
         currentStage.close();
 
     }
 
-    public void setQuestion(Question temporaryQuestion) {
-        this.temporaryQuestion = temporaryQuestion;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(()->{
-            editQuestion.setText(temporaryQuestion.getQuestion());
-            editopt1.setText(temporaryQuestion.getOpt1());
-            editopt2.setText(temporaryQuestion.getOpt2());
-            editopt3.setText(temporaryQuestion.getOpt3());
-            editopt4.setText(temporaryQuestion.getOpt4());
+            q.display();
 
         });
 

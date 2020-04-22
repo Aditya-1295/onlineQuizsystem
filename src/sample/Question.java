@@ -5,6 +5,26 @@ public class Question {
     private String question;
     private String opt1,opt2,opt3,opt4;
 
+    public String getQuestion()
+    {
+        return question;
+    }
+    public String getOpt1()
+    {
+        return opt1;
+    }
+    public String getOpt2()
+    {
+        return opt2;
+    }
+    public String getOpt3()
+    {
+        return opt3;
+    }
+    public String getOpt4()
+    {
+        return opt4;
+    }
     public Question()
     {
 
